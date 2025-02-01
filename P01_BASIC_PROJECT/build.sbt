@@ -1,4 +1,4 @@
-name := """BASICS"""
+name := """P01_BASIC_PROJECT"""
 version := "1.0-SNAPSHOT"
 
 scalaVersion := "3.6.3"
@@ -6,9 +6,7 @@ scalaVersion := "3.6.3"
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "7.0.0" % Test
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
-
-
+val root: Project = (project in file(".")).enablePlugins(PlayScala)
 
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.example.controllers._"
