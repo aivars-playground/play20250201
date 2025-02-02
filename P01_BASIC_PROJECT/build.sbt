@@ -11,7 +11,7 @@ val root: Project =
       libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "7.0.1" % Test
     )
 
-val perf: Project =
-  (project in file("perf"))
+val it: Project =
+  (project in file("it"))
     .enablePlugins(PlayScala)
     .dependsOn(root % "test->test")
