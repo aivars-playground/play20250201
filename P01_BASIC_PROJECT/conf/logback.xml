@@ -6,6 +6,7 @@
 
 <configuration>
   <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
+  <import class="ch.qos.logback.classic.AsyncAppender"/>
   <import class="ch.qos.logback.core.ConsoleAppender"/>
 
   <appender name="STDOUT" class="ConsoleAppender">
