@@ -3,10 +3,10 @@ package controllers
 import play.api.*
 import play.api.mvc.*
 
-import java.util.concurrent.{ExecutorService, Executors}
+import java.util.concurrent.Executors
 import javax.inject.*
 import scala.collection.parallel.CollectionConverters.*
-import scala.collection.parallel.{ExecutionContextTaskSupport, ForkJoinTaskSupport}
+import scala.collection.parallel.ExecutionContextTaskSupport
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Random
 
@@ -16,7 +16,11 @@ class HomeController @Inject()(
   val controllerComponents: ControllerComponents,
 ) extends BaseController {
 
-  def index() = Action { implicit request: Request[AnyContent] =>
+  def index() = Action {
+    Ok("")
+  }
+
+  def threads() = Action { implicit request: Request[AnyContent] =>
 
     val list = (1 to 10000).toList.par
 
