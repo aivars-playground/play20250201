@@ -6,8 +6,9 @@ import javax.inject.Inject
 import scala.concurrent.ExecutionContext
 
 class JsonController @Inject() (
-    cc: ControllerComponents,
-    implicit val ec: ExecutionContext
+    cc: ControllerComponents
+)(using
+    ExecutionContext
 ) extends AbstractController(cc):
 
   def index() = Action {
