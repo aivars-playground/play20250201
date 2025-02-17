@@ -44,8 +44,25 @@ class CollectionSpec extends PlaySpec with GuiceOneAppPerTest with Injecting {
       println("--next to E is:" + findItemFollowing("E", names).getOrElse("NOTHING"))
 
 
-    }
+      def consMatchTailSize(list: List[String]): Int = {
+        list match
+          case Nil => -1
+          case ::(_, Nil) => 0
+          case ::(_, tail) => tail.length
+      }
 
+      println("consMatchTailSize empty :" + consMatchTailSize(List.empty))
+      println("consMatchTailSize one element :" + consMatchTailSize(List("A")))
+      println("consMatchTailSize 5 element :" + consMatchTailSize(names))
+
+      @tailrec
+      def tailOptimisedConcat(list: List[String])(acc: String = ""): String =
+        list match
+          case Nil => acc
+          case head::tail => tailOptimisedConcat(tail)(acc+head)
+
+      println("--tailOptimisedConcat:" + tailOptimisedConcat(names)())
+    }
 
   }
 
