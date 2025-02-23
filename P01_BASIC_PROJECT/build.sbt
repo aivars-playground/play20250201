@@ -9,6 +9,8 @@ val root: Project =
     .enablePlugins(PlayScala)
     .settings(
       libraryDependencies += guice,
+      libraryDependencies += "dev.optics" %% "monocle-core" % "3.3.0",
+      libraryDependencies += "dev.optics" %% "monocle-macro" % "3.3.0",
       libraryDependencies += "org.scala-lang.modules" %% "scala-parallel-collections" % "1.2.0",
       libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "7.0.1" % Test
     )
